@@ -6,10 +6,12 @@ How to run the App?
 2. Download my project materials
 
 Front-End
+
 4. Go to your "client" folder and run "npx create-react-app ." to create React app in your folder
 5. Copy the files from my "client" folder into your react app folder correspondingly
 
 Back-End
+
 7. Go to your "server" folder and run "npm init"
 8. Run "npm install express express-session mysql bcrypt body-parser cors cookie-parser helmet nodemon"
 9. Copy "index.js" from my "server" folder into your "server" folder
@@ -17,6 +19,7 @@ Back-End
 11. Run "npm run devStart"
 
 Database
+
 13. run "Set-ExecutionPolicy AllSigned"
 14. run "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
 15. run "choco install mysql"
@@ -31,5 +34,6 @@ Database
 24. Copy my "deployDB.sql" into your server folder and run "source deployDB.sql" in mysql shell
 
 Start all services
+
 25. Go to "client" folder and run "npm start"
 26. Go to "server" folder and run "npm run devStart"
