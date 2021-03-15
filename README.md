@@ -19,10 +19,18 @@ Front-End
 Back-End
 
 7. Go to your "server" folder and run "npm init"
-8. Run "npm install express express-session mysql bcrypt body-parser cors cookie-parser helmet nodemon"
-9. Copy "index.js" from my "server" folder into your "server" folder
-10. Add {"devStart": "nodemon index.js",} into your "package.json" under the "script" section
-11. Run "npm run devStart"
+8. Run "npm install express;" express-session mysql bcrypt body-parser cors cookie-parser helmet nodemon"
+9. Run "npm install express-session;"
+10. Run "npm install mysql;"
+11. Run "npm install bcrypt;"
+12. Run "npm install body-parser;"
+13. Run "npm install cors;"
+14. Run "npm install cookie-parser;"
+15. Run "npm install helmet;"
+16. Run "npm install nodemon;"
+17. Copy "index.js" from my "server" folder into your "server" folder
+18. Add {"devStart": "nodemon index.js",} into your "package.json" under the "script" section
+19. Run "npm run devStart"
 
 Database
 
