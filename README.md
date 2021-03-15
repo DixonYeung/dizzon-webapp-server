@@ -7,30 +7,34 @@ https://drive.google.com/file/d/197arJwXX-Df9R49MHjv_pITTSyEzVUcB/view?usp=shari
 
 ## How to run the App?
 
-1. Create folders named ```"client"``` and ```"server"```
+1. Create folders named ```client``` and ```server```
 2. Download my project materials
 
 ### Front-End
 
-4. Go to your "client" folder and run "npx create-react-app ." to create React app in your folder
-5. Copy the files from my "client" folder into your react app folder correspondingly
-6. run "npm install axios"
+4. Open powershell
+5. Change directory to your "client" folder
+6. run ```npx create-react-app .``` to create React app in your folder
+7. Copy the files from my "client" folder into your react app folder correspondingly
+8. run ```npm install axios``` for React app to call restful-api
 
 ### Back-End
 
-7. Go to your "server" folder and run "npm init"
-8. Run "npm install express;" express-session mysql bcrypt body-parser cors cookie-parser helmet nodemon"
-9. Run "npm install express-session;"
-10. Run "npm install mysql;"
-11. Run "npm install bcrypt;"
-12. Run "npm install body-parser;"
-13. Run "npm install cors;"
-14. Run "npm install cookie-parser;"
-15. Run "npm install helmet;"
-16. Run "npm install nodemon;"
-17. Copy "index.js" from my "server" folder into your "server" folder
-18. Add {"devStart": "nodemon index.js",} into your "package.json" under the "script" section
-19. Run "npm run devStart"
+7. Open another powershell
+8. Change directory to your "server" folder
+9. run ```npm init```
+10. Run ```npm install express```
+11. Run ```npm install express-session```
+12. Run ```npm install mysql```
+13. Run ```npm install bcrypt```
+14. Run ```npm install body-parser```
+15. Run ```npm install cors```
+16. Run ```npm install cookie-parser```
+17. Run ```npm install helmet```
+18. Run ```npm install nodemon```
+19. Copy "index.js" from my "server" folder into your "server" folder
+20. Add key-value pair ```"devStart": "nodemon index.js",``` into your "package.json" ( under the "script" section )
+21. Run ```npm run devStart```
 
 ### Database
 
