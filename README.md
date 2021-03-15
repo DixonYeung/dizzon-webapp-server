@@ -46,7 +46,7 @@ https://drive.google.com/file/d/197arJwXX-Df9R49MHjv_pITTSyEzVUcB/view?usp=shari
 18. If mysql command cannot run, add ```"C:\tools\mysql\current\bin"``` to system PATH, then restart computer
 19. run ```mysqladmin --user=root password "root"```
 20. run ```mysql -uroot -proot``` to login to mysql shell, inside the shell:
-21. ```mysql> create database clinic;```
+21. > mysql> create database clinic;
 22. ```mysql> create user 'clinic_app'@'%' identified by 'clinic_app';```
 23. ```mysql> grant all privileges on clinic.* to 'clinic_app'@'%';```
 24. ```mysql> flush privileges;```
