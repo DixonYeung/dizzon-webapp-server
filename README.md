@@ -56,6 +56,12 @@ https://drive.google.com/file/d/197arJwXX-Df9R49MHjv_pITTSyEzVUcB/view?usp=shari
 28. ```mysql> source deployDB-utf8.sql;```
 29. Then my database should be deployed to your database system
 30. try ```mysql> select * from userInfo;``` and ```mysql> select * from consultation_record;``` to see if data exists
+31. exit the mysql shell and login using root account, i.e. ```mysql -uroot -proot```
+33. run ```mysql> ALTER USER 'clinic_app'@'%' IDENTIFIED WITH mysql_native_password BY 'clinic_app';``` to change auth mode to sync Node settings
+34. ```mysql> flush privileges;```
+35. Do it again for root user: ```mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';```
+36. ```mysql> flush privileges;```
+37. exit and login using clinic_app user account, i.e. ```mysql -uclinic_app -pclinic_app```
 
 ### Start all services
 
