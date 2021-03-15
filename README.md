@@ -46,7 +46,7 @@ Database
 22. run "create user 'clinic_app'@'%' identified by 'clinic_app';"
 23. run "grant all privileges on clinic.* to 'clinic_app'@'%';"
 24. run "flush privileges;"
-25. Login again using clinic_app user
+25. Login again using clinic_app user, i.e. "mysql -uclinic_app -pclinic_app"
 26. Copy my "deployDB.sql" into your server folder and run "source deployDB.sql" in mysql shell
 
 Start all services
