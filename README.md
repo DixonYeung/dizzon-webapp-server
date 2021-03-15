@@ -34,18 +34,19 @@ Back-End
 
 Database
 
-13. run "Set-ExecutionPolicy AllSigned"
-14. run "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
-15. run "choco install mysql"
-16. run "mysql -uroot" to see if mysql is okay
-17. run "mysqladmin --user=root password "root"
-18. run "mysql -uroot -proot
-19. run "create database clinic;"
-20. run "create user 'clinic_app'@'%' identified by 'clinic_app';"
-21. run "grant all privileges on clinic.* to 'clinic_app'@'%';"
-22. run "flush privileges"
-23. Login again using clinic_app user
-24. Copy my "deployDB.sql" into your server folder and run "source deployDB.sql" in mysql shell
+13. Open the powershell using administrative rights
+14. run "Set-ExecutionPolicy AllSigned"
+15. run "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
+16. run "choco install mysql"
+17. run "mysql -uroot" to see if mysql is okay
+18. run "mysqladmin --user=root password "root"
+19. run "mysql -uroot -proot
+20. run "create database clinic;"
+21. run "create user 'clinic_app'@'%' identified by 'clinic_app';"
+22. run "grant all privileges on clinic.* to 'clinic_app'@'%';"
+23. run "flush privileges"
+24. Login again using clinic_app user
+25. Copy my "deployDB.sql" into your server folder and run "source deployDB.sql" in mysql shell
 
 Start all services
 
