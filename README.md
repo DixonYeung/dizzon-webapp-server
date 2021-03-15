@@ -39,14 +39,15 @@ Database
 15. run "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
 16. run "choco install mysql"
 17. run "mysql -uroot" to see if mysql is okay
-18. run "mysqladmin --user=root password "root"
-19. run "mysql -uroot -proot
-20. run "create database clinic;"
-21. run "create user 'clinic_app'@'%' identified by 'clinic_app';"
-22. run "grant all privileges on clinic.* to 'clinic_app'@'%';"
-23. run "flush privileges"
-24. Login again using clinic_app user
-25. Copy my "deployDB.sql" into your server folder and run "source deployDB.sql" in mysql shell
+18. If mysql command cannot run, add "C:\tools\mysql\current\bin" to system PATH, then restart computer
+19. run "mysqladmin --user=root password "root"
+20. run "mysql -uroot -proot"
+21. run "create database clinic;"
+22. run "create user 'clinic_app'@'%' identified by 'clinic_app';"
+23. run "grant all privileges on clinic.* to 'clinic_app'@'%';"
+24. run "flush privileges;"
+25. Login again using clinic_app user
+26. Copy my "deployDB.sql" into your server folder and run "source deployDB.sql" in mysql shell
 
 Start all services
 
