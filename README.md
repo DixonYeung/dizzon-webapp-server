@@ -47,7 +47,9 @@ Database
 23. run "grant all privileges on clinic.* to 'clinic_app'@'%';"
 24. run "flush privileges;"
 25. Login again using clinic_app user, i.e. "mysql -uclinic_app -pclinic_app"
-26. Copy my "deployDB.sql" into your server folder and run "source deployDB.sql" in mysql shell
+26. mysql> use clinic;
+27. Copy my "deployDB-utf8.sql" into your server folder
+28. mysql> source deployDB-utf8.sql
 
 Start all services
 
