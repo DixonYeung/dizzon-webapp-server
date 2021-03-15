@@ -5,18 +5,18 @@ https://drive.google.com/file/d/17nBVc8Q4bTUO1hfHFXQrl7hRKrGezbTk/view?usp=shari
 
 https://drive.google.com/file/d/197arJwXX-Df9R49MHjv_pITTSyEzVUcB/view?usp=sharing
 
-How to run the App?
+## How to run the App?
 
-1. Create folders named "client" and "server"
+1. Create folders named ```"client"``` and ```"server"```
 2. Download my project materials
 
-Front-End
+### Front-End
 
 4. Go to your "client" folder and run "npx create-react-app ." to create React app in your folder
 5. Copy the files from my "client" folder into your react app folder correspondingly
 6. run "npm install axios"
 
-Back-End
+### Back-End
 
 7. Go to your "server" folder and run "npm init"
 8. Run "npm install express;" express-session mysql bcrypt body-parser cors cookie-parser helmet nodemon"
@@ -32,7 +32,7 @@ Back-End
 18. Add {"devStart": "nodemon index.js",} into your "package.json" under the "script" section
 19. Run "npm run devStart"
 
-Database
+### Database
 
 13. Open the powershell using administrative rights
 14. run "Set-ExecutionPolicy AllSigned"
@@ -51,7 +51,7 @@ Database
 27. Copy my "deployDB-utf8.sql" into your server folder
 28. mysql> source deployDB-utf8.sql
 
-Start all services
+### Start all services
 
 25. Go to "client" folder and run "npm start"
 26. Go to "server" folder and run "npm run devStart"
