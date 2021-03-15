@@ -14,6 +14,7 @@ Front-End
 
 4. Go to your "client" folder and run "npx create-react-app ." to create React app in your folder
 5. Copy the files from my "client" folder into your react app folder correspondingly
+6. run "npm install axios"
 
 Back-End
 
