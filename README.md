@@ -1,9 +1,7 @@
 # react-node-mysql-practice-1
-### App Demo:
+### Deployed API testing:
 
-https://drive.google.com/file/d/17nBVc8Q4bTUO1hfHFXQrl7hRKrGezbTk/view?usp=sharing
-
-https://drive.google.com/file/d/197arJwXX-Df9R49MHjv_pITTSyEzVUcB/view?usp=sharing
+https://reactapp01-server.herokuapp.com/api/test
 
 ## How to run the App?
 
