@@ -16,6 +16,8 @@ const saltRounds = 10;
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 
+const PORT = process.env.PORT || 5000;
+
 
 const db = mysql.createPool({
     hostname: 'localhost',
@@ -184,6 +186,6 @@ app.post('/api/logout', (req, res) => {
 
 
 
-app.listen(4469, () => {
-    console.log("running on port 4469");
+app.listen(PORT, () => {
+    console.log(`Listening on ${ PORT }`);
 });
