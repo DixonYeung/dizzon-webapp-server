@@ -1,5 +1,5 @@
 # react-node-mysql-practice-1
-### Deployed API testing:
+### Deployed API testing (cloud deployed on Heroku):
 
 https://dizzon-webapp-server.herokuapp.com/api/todolist
 
