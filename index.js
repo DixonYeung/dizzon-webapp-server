@@ -46,12 +46,9 @@ app.use(expressSession({
 }))
 
 
-app.get('/api/test', (req, res) => {
-    // const sqlSelect = "SELECT email, clinicName, phoneNumber, address FROM userInfo;";
-    // db.query(sqlSelect, (err, result) =>{
-    //     res.send(result);
-    // });
-    res.send('server test /GET success');
+app.get('/api/todolist', (req, res) => {
+    let data = require('./todolist.json');
+    res.send(data);
 });
 
 

@@ -1,0 +1,80 @@
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "Sleep before 12:00",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "title": "Drink enough water",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "Eat enough vegatable",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 4,
+    "title": "Read a book that planned to read a long time ago",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 5,
+    "title": "Tidy things up",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 6,
+    "title": "Excercise at least 3 times a week",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 7,
+    "title": "Go Kayaking in weekend",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 8,
+    "title": "Go hiking in weekend",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 9,
+    "title": "Cook for the love one",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 10,
+    "title": "Have dinner with mother",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 11,
+    "title": "Get 3 wins in Animal Royals",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 12,
+    "title": "Watch a new movie in cinema",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 13,
+    "title": "Read an English article aloud",
+    "completed": false
+  }
+]
