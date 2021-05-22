@@ -27,7 +27,7 @@ const db = mysql.createPool({
 });
 
 app.use(cors({
-    origin: ["https://dizzon-webapp-todolist.herokuapp.com"],
+    origin: ["https://dizzon-webapp-todolist.herokuapp.com","https://dizzonwebapp-todolist-6wnm8.ondigitalocean.app/"],
     methods: ["GET","POST"],
     credentials: true
 }));
