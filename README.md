@@ -1,7 +1,7 @@
 # react-node-mysql-practice-1
 ### Deployed API testing:
 
-https://dizzon-webapp-server.herokuapp.com/api/test
+https://dizzon-webapp-server.herokuapp.com/api/todolist
 
 ## How to run the App?
 
