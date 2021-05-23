@@ -25,15 +25,15 @@ const db = mysql.createPool({
     password: 'clinic_app',
     database: "clinic"
 });
-var whitelist = ["https://dizzon-webapp-todolist.herokuapp.com","https://dizzonwebapp-todolist-6wnm8.ondigitalocean.app"];
+var whitelist = ["https://dizzon-webapp-todolist.herokuapp.com","https://dizzonwebapp-todolist-6wnm8.ondigitalocean.app","https://dizzonwebapp-todolist.on.fleek.co"];
 app.use(cors({
-    origin: "*"/*function (origin, callback) {
+    origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
           callback(null, true)
         } else {
           callback(new Error('Not allowed by CORS'))
         }
-      }*/,
+      },
     methods: ["GET","POST","HEAD"],
     credentials: true
 }));
