@@ -26,7 +26,7 @@
                 <% data.forEach((foundData, i)=>{%>
                     <tr>
                         <td><a href="<%= foundData.fullURL %>"><%= foundData.fullURL %></a></td>
-                        <td><a href="<%= foundData.shortURL %>"><%= foundData.shortURL %></a></td>
+                        <td><a href="<%= foundData.shortURL %>"><%= "https://dizzon.herokuapp.com/"+foundData.shortURL %></a></td>
                     </tr>
                 <%})%>
             </tbody>
