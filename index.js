@@ -29,7 +29,7 @@ const db = mysql.createPool({
 });
 
 
-var whitelist = ["https://dizzon-webapp-todolist.herokuapp.com","https://dizzonwebapp-todolist-6wnm8.ondigitalocean.app","https://dizzonwebapp-todolist.on.fleek.co","https://dizzon-todolist.netlify.app"];
+var whitelist = ["https://dizzon-webapp-server.herokuapp.com","https://dizzon-webapp-todolist.herokuapp.com","https://dizzonwebapp-todolist-6wnm8.ondigitalocean.app","https://dizzonwebapp-todolist.on.fleek.co","https://dizzon-todolist.netlify.app"];
 app.use(cors({
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
@@ -55,10 +55,10 @@ app.use(expressSession({
     }
 }))
 
-
+var { nanoid } = require("nanoid");
 
 //db
-async function main(mode){
+async function main(action, collection){
     const uri = process.env.MONGO_URI;
     const mongodb =  new MongoClient(uri,{ useNewUrlParser: true, useUnifiedTopology: true });
     try {
@@ -66,23 +66,61 @@ async function main(mode){
         await mongodb.connect();
         
         // Make the appropriate DB calls
-        if(mode == "listdb"){
+        if(action == "listdb"){
             return await listDatabases(mongodb);
         }
-        else if(mode == "createCollection"){
-            return await createCollection(mongodb);
+        else if(action =="listCollection"){
+            return await listCollection(mongodb, collection);
         }
-        else if(mode == "listAllMarker"){
-            return await listAllMarker(mongodb);
+
+        else if(action == "createCollection"){
+            if(collection.length > 0){
+                return await createCollection(mongodb, collection);
+            }
+            else{
+                return "collection must not be null";
+            }
         }
-        else if(mode == "insertAllMarker"){
-            return await insertAllMarker(mongodb);
+        else if(action =="dropCollection"){
+            if(collection.length > 0){
+                return await dropCollection(mongodb, collection);
+            }
+            else{
+                return "collection must not be null";
+            }
         }
-        else if(mode =="listCollection"){
-            return await listCollection(mongodb);
+        else if(action == "listAllData"){
+            if(collection.length > 0){
+                return await listAllMarker(mongodb, collection);
+            }
+            else{
+                return "collection must not be null";
+            }
         }
-        else if(mode =="deleteAllMarker"){
-            return await deleteAllMarker(mongodb);
+        else if(action == "insertAllMarker"){
+            if(collection.length > 0){
+                return await insertAllMarker(mongodb, collection);
+            }
+            else{
+                return "collection must not be null";
+            }
+        }
+        else if(action =="deleteAllMarker"){
+            if(collection.length > 0){
+                return await deleteAllMarker(mongodb, collection);
+            }
+            else{
+                return "collection must not be null";
+            }
+        }
+        else if(action =="listShortURL"){
+            return await listShortURL(mongodb);
+        }
+        else if(action == "insertShortURL"){
+            return await insertShortURL(mongodb, collection);
+        }
+        else if(action == "findShortURL"){
+            return await findShortURL(mongodb, collection);
         }
 
     } catch (e) {
@@ -103,17 +141,16 @@ async function listDatabases(client){
     return temp;
 };
 
-async function createCollection(client){
-    
-    await client.db().createCollection("marker_info", function(err, res) {
-        if (err) {
-            // console.log(err);
-            // client.close();
-            return "error occurred";
-        }
-        console.log("Collection created!");
-        client.close();
-        return "create collection success";
+async function createCollection(client, collection){
+    return new Promise(function(resolve, reject){
+        client.db().createCollection(collection, function(err, res) {
+            if (err) {
+                resolve("error occurred");
+            }
+            console.log("Collection created!");
+            client.close();
+            resolve("create collection - "+ collection +" success");
+        });
     });
     
 };
@@ -124,11 +161,25 @@ async function listCollection(client){
         client.db().listCollections().toArray( function(err, collectionList){
             if(err){
                 console.log(err);
-                resolve("error in marker_info find");
+                resolve("error in listing collection");
             }
             console.log(JSON.stringify(collectionList));
             client.close();
             resolve(JSON.stringify(collectionList));
+        });
+    }); 
+};
+
+async function dropCollection(client, collection){
+    return new Promise(function(resolve, reject){
+        client.db().collection(collection).drop( function(err, delOK){
+            if(err){
+                console.log(err);
+                resolve("error in dropping collection");
+            }
+            console.log(delOK);
+            client.close();
+            resolve("collection - "+ collection +" dropped");
         });
     }); 
 };
@@ -201,31 +252,116 @@ async function insertAllMarker(client){
                 });
             })
         }
-    });
-    
+    }); 
+};
+
+async function listShortURL(client){
+    return new Promise(function(resolve, reject){
+        client.db().collection("shortUrl").find({}).toArray( function(err, result){
+            if(err){
+                console.log(err);
+                resolve( "error in finding data in shortUrl collection " );
+            }
+            client.close();
+            resolve(result);
+        });
+    }); 
 };
 
 
 
+
+async function insertShortURL(client, data){
+    return new Promise(function(resolve, reject){
+        client.db().collection("shortUrl").find({fullURL: data.fullURL}).toArray( function(err, result){
+            if(err){
+                console.log(err);
+                resolve( "error in shortUrl find" );
+            }
+            console.log(result);
+            resolve(result);
+        });
+    }).then(function(result){
+        if( ! (result.length > 0) ){
+            return new Promise(function(resolve, reject){
+                client.db().collection("shortUrl").insertOne( data ,function(err, result){
+                    if(err){
+                        console.log(err);
+                        resolve( "error when inserting data into shortUrl collection" );
+                    }
+                    console.log("data successfully inserted into shortUrl collection");
+                    client.close();
+                    resolve("successfully inserted");
+                });
+            })
+        }
+    }); 
+};
+
+async function findShortURL(client, shortURL){
+
+    return new Promise(function(resolve, reject){
+        client.db().collection("shortUrl").find({shortURL: shortURL}).toArray( function(err, result){
+            if(err){
+                console.log(err);
+                resolve( "error in finding data in shortUrl collection " );
+            }
+            client.close();
+            resolve(result);
+        });
+    }); 
+};
+
+
 //db api
-app.get('/api/listdb', async (req, res) => {
-    res.send( await main('listdb').catch(console.error) );
+app.get('/api/mongodb', async (req, res)=>{
+    let action = req.query.action;
+    let collection = req.query.collection;
+    if(action){
+        res.send( await main(action,collection).catch(console.error) );
+        console.log("response sent");
+    }
+    else{
+        console.log("no action is requested");
+        res.send("no action is requested");
+    }
 });
-app.get('/api/listAllMarker', async (req, res) => {
-    res.send( await main('listAllMarker').catch(console.error) );
-});
-app.get('/api/createCollection', async (req, res) => {
-    res.send( await main('createCollection').catch(console.error) );
-});
-app.get('/api/listCollection', async (req, res) => {
-    res.send( await main('listCollection').catch(console.error) );
-});
-app.get('/api/insertAllMarker', async (req, res) => {
-    res.send( await main('insertAllMarker').catch(console.error) );
-});
-app.get('/api/deleteAllMarker', async (req, res) => {
-    res.send( await main('deleteAllMarker').catch(console.error) );
-});
+
+
+//short url
+
+app.set('view engine','ejs');
+
+app.get('/url-shortener', async (req, res)=>{
+    var result = await main("listShortURL").catch(console.error);
+    res.render('url-shortener', {data: result});
+})
+
+app.post('/api/insertShortURL', async (req, res)=>{
+    var data = {
+        fullURL: req.body.fullURL,
+        shortURL: nanoid(6)
+    }
+    await main("insertShortURL", data).catch(console.error);
+    res.redirect('/url-shortener');
+})
+
+app.get('/:shortURL', async (req, res)=>{
+    new Promise((resolve, reject)=>{
+        resolve( main("findShortURL",req.params.shortURL).catch(console.error) );
+    }).then(result=>{
+        res.redirect(301, result[0].fullURL);
+    });
+    
+})
+
+
+
+
+
+
+
+
 
 
 //to do list api
