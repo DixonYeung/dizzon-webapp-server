@@ -32,11 +32,11 @@ const db = mysql.createPool({
 var whitelist = ["dizzon-webapp-server.herokuapp.com","https://dizzon-webapp-todolist.herokuapp.com","https://dizzonwebapp-todolist-6wnm8.ondigitalocean.app","https://dizzonwebapp-todolist.on.fleek.co","https://dizzon-todolist.netlify.app"];
 app.use(cors({
     origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
+        //if (whitelist.indexOf(origin) !== -1) {
           callback(null, true)
-        } else {
-          callback(new Error('Not allowed by CORS'))
-        }
+        //} else {
+          //callback(new Error('Not allowed by CORS'))
+        //}
       },
     methods: ["GET","POST","HEAD"],
     credentials: true
