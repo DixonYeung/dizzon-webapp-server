@@ -1,6 +1,7 @@
 exports.importModule = function(app){
     //short url
     var { nanoid } = require("nanoid");
+    const {MongoClient} = require('mongodb');
     app.set('view engine','ejs');
 
     app.get('/url-shortener', async (req, res)=>{
