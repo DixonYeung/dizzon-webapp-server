@@ -9,6 +9,11 @@ exports.importModule = function(app){
         res.render('url-shortener', {data: result});
     })
 
+    app.get('/listShortURL', async (req, res)=>{
+        var result = await mongoInteraction("listShortURL").catch(console.error);
+        res.send(result);
+    })
+
     app.post('/api/insertShortURL', async (req, res)=>{
         var data = {
             fullURL: req.body.fullURL,
